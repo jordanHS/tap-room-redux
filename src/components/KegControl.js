@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from "react";
 import NewKegForm from "./NewKegForm";
 import KegList from "./KegList";
@@ -5,11 +6,13 @@ import KegDetail from"./KegDetail";
 
 class KegControl extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        console.log(props);
         this.state = {
             formVisibleOnPage: false,
             masterKegList: [],
-            selectedKeg: null
+            selectedKeg: null,
+            editing: false
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -27,10 +30,18 @@ class KegControl extends React.Component {
       }
     
     handleAddingNewKegToList = (newKeg) => {
-       const newMasterKegList = this.state.masterKegList.concat(newKeg);
-       this.setState({masterKegList: newMasterKegList,
-                        formVisibleOnPage: false });
-                        
+      const { dispatch } = this.props;
+      const { id, name, brand, price, alcohol } = newKeg;
+      const action = {
+        type: 'ADD_TICKET',
+        id: id,
+        name: name,
+        brand: brand,
+        price: price,
+        alcohol: alcohol,
+      }
+      dispatch(action);
+      this.setState({formVisibleOnPage: false});
     }
 
     handleChangingSelectedKeg = (id) => {
@@ -39,11 +50,13 @@ class KegControl extends React.Component {
     }
 
     handleDeletingKeg = (id) => {
-        const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
-        this.setState({
-          masterKegList: newMasterKegList,
-          selectedKeg: null
-        })
+        const { dispatch } = this.props;
+        const action = {
+          type: 'DELETE_KEG',
+          id: id
+        }
+        dispatch(action);
+        this.state({selectedKeg: null});
       }
 
     render() {
@@ -73,5 +86,7 @@ class KegControl extends React.Component {
             );
         }
     }
+
+    KegControl = connect()(KegControl);
 
     export default KegControl;
