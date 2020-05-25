@@ -24,7 +24,7 @@ describe("rootReducer", () => {
 
     test('Check that initial state of kegListReducer matches root reducer',() => {
         const action = {
-            type: 'ADD_TICKET',
+            type: 'ADD_KEG',
             name: 'Spiced Cider',
             brand: 'Angry Orchard',
             price: '$2',
