@@ -45,11 +45,11 @@ class KegControl extends React.Component {
     }
 
     handleDeletingKeg = (id) => {
-        const { dispatch } = this.props;
-        const action = a.deleteKeg(id);
-        dispatch(action);
-        this.state({selectedKeg: null});
-      }
+      const { dispatch } = this.props;
+      const action = a.deleteKeg(id);
+      dispatch(action);
+      this.setState({selectedKeg: null});
+    }
 
     render() {
         let currentlyVisibleState = null;

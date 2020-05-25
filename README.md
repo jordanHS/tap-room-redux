@@ -27,7 +27,7 @@ _A site for viewing a list of kegs in a tap room_
 
 ## Technologies Used
 
-_HTML, CSS, JavaScript, React & Webpack_
+_HTML, CSS, JavaScript, React, Rdeux & Webpack_
 
 Application plan: https://drive.google.com/file/d/1a2JpCggi35-kPBAcrg2N_4Mq9O536Q-h/view?usp=sharing
 
