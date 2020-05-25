@@ -2,6 +2,19 @@ import kegListReducer from '../../reducers/keg-list-reducer';
 
 describe('kegListReducer', () => {
 
+    const currentState = {
+        1: {name: 'Spiced Cider',
+        brand: 'Angry Orchard',
+        price: '$2',
+        alcohol: '5%',
+        id: 1 },
+        2: {name: 'Pineapple Mandarin Lemonade',
+        brand: 'Mikes Hard',
+        price: '$2',
+        alcohol: '5%',
+        id: 2 }
+    }
+
     let action;
     const kegData = {
         name: "Spiced Cider",
@@ -33,6 +46,20 @@ describe('kegListReducer', () => {
                 alcohol: alcohol,
                 id: id
             }
-        })
+        });
+    });
+
+    test('Should successfully delete a ticket', () => {
+        action = {
+            type: 'DELETE_TICKET',
+            id: 1
+        };
+        expect(kegListReducer(currentState, action)).toEqual({
+            2: {name: 'Pineapple Mandarin Lemonade',
+            brand: 'Mikes Hard',
+            price: '$2',
+            alcohol:'5%',
+            id: 2 }
+        })    
     })
 });
