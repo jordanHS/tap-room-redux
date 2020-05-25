@@ -14,14 +14,14 @@ describe('help queue actions', () => {
         });
     });
 
-    // it('addTicket should create ADD_KEG action', () => {
-    //     expect(actions.addKeg({name: 'Spiced Cider', brand: 'Angry Orchard', price: '$2', alcohol: '5%', id: 1})).toEqual({
-    //         type: 'ADD_KEG',
-    //         name: 'Spiced Cider',
-    //         brand: 'Angry Orchard',
-    //         price: '$2',
-    //         alcohol: '5%',
-    //         id: 1 
-    //     });
-    // });
+    it('addTicket should create ADD_KEG action', () => {
+        expect(actions.addKeg({name: 'Spiced Cider', brand: 'Angry Orchard', price: '$2', alcohol: '5%', id: 1})).toEqual({
+            type: 'ADD_KEG',
+            name: 'Spiced Cider',
+            brand: 'Angry Orchard',
+            price: '$2',
+            alcohol: '5%',
+            id: 1 
+        });
+    });
 });
